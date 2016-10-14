@@ -2,13 +2,12 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');  // allows us to get POST data
 var methodOverride = require('method-override');
-// var mongoose = require('mongoose');
-var db = require('./app/models/db');
 
-// var db = require('./config/db');
+var db = require('./app/models/db');
+var user = require('./app/models/user'),
+
 var port = process.env.PORT || 8080
 
-// mongoose.connect('mongodb://localhost:27017/book');
 // parse application/json
 app.use(bodyParser.json());
 

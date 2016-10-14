@@ -1,17 +1,15 @@
-var Nerd = require('./models/nerd');
-// var Nerd = require('./app/models/nerd');
-
+var User = require('./models/user');
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
 //
 // module.exports = function(app) {
-//   app.get('/api/nerds', function(req, res) {
-//         Nerd.find(function(err, nerds) {
+//   app.get('/api/user', function(req, res) {
+//         User.find(function(err, user) {
 //             if (err)
 //                 res.send(err);
-//             res.json(nerds); // return all nerds in JSON format
+//             res.json(user); // return all user in JSON format
 //         });
 //     });
 //
@@ -37,64 +35,64 @@ router.get('/', function(req, res) {
 });
 
 // more routes for our API will happen here
-// picks up routes that end in /nerds
-router.route('/nerds')
+// picks up routes that end in /user
+router.route('/users')
   .post(function(req, res) {
 
-    var nerd = new Nerd();
-    nerd.name = req.body.name;
+    var user = new User();
+    user.name = req.body.name;
 
-    nerd.save(function(err) {
+    user.save(function(err) {
       if (err)
         res.send(err);
 
-      res.json({ message: 'Nerd created!'});
+      res.json({ message: 'User created!'});
     });
   }) // close post
 
     .get(function(req, res) {
-      Nerd.find(function(err, nerds) {
+      User.find(function(err, users) {
         if (err)
           res.send(err);
 
-        res.json(nerds);
+        res.json(users);
       });
     });
 
-// picks up routes that end in /nerds
-router.route('/nerds/:nerd_id')
+// picks up routes that end in /users
+router.route('/user/:user_id')
 
   .get(function(req, res) {
-    Nerd.findById(req.params.nerd_id, function(err, nerd) {
+    User.findById(req.params.user_id, function(err, user) {
       if (err)
         res.send(err);
-      res.json(nerd);
+      res.json(user);
     });
   })
 
   .put(function(req, res) {
 
-    Nerd.findById(req.params.nerd_id, function(err, nerd) {
+    User.findById(req.params.user_id, function(err, user) {
 
       if (err)
         res.send(err);
 
-      nerd.name = req.body.name;
+      user.name = req.body.name;
 
-      nerd.save(function(err) {
+      user.save(function(err) {
         if (err)
           res.send(err);
 
-        res.json({ message: 'Nerd updated!'});
+        res.json({ message: 'User updated!'});
       });
 
     });
   })
 
   .delete(function(req, res) {
-    Nerd.remove({
-      _id: req.params.nerd_id
-    }, function(err, nerd) {
+    User.remove({
+      _id: req.params.user_id
+    }, function(err, user) {
       if (err)
         res.send(err);
 
