@@ -29,9 +29,6 @@ app.use(express.static(__dirname + '/public'));
 
 
 
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
-app.use('/api', router);
 
 // start app ===============================================
 // startup our app at http://localhost:8080

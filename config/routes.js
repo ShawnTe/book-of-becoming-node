@@ -1,6 +1,10 @@
 var Nerd = require('./models/nerd');
 // var Nerd = require('./app/models/nerd');
 
+
+// REGISTER OUR ROUTES -------------------------------
+// all of our routes will be prefixed with /api
+app.use('/api', router);
 //
 // module.exports = function(app) {
 //   app.get('/api/nerds', function(req, res) {
