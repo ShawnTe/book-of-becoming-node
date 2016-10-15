@@ -2,7 +2,7 @@ describe("Configuration setup", function() {
   it("should load local configurations", function(next) {
     var config = require('../config')();
     expect(config.mode).toBe('local');
-    expect(config.port).toBe(8080);
+    expect(config.port).toBe(3000);
     next()
   });
   it("should load staging configurations", function(next) {
