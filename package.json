@@ -1,0 +1,11 @@
+{
+  "name": "starter-node",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.4.2",
+    "express": "~4.5.1",
+    "method-override": "~2.0.2",
+    "mongoose": "~4.4",
+    "underscore": "^1.8.3"
+  }
+}
