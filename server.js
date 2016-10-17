@@ -1,10 +1,10 @@
-var express        = require('express'),
+var express = require('express'),
         http = require('http');
         config = require('./config')(),
-        app            = express(),
+        app = express(),
         MongoClient = require('mongodb').MongoClient;
 
-var bodyParser     = require('body-parser');  // allows us to get POST data
+var bodyParser = require('body-parser');  // allows us to get POST data
 var methodOverride = require('method-override');
 // var connect = require('connect'),
 
@@ -40,6 +40,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
 
+app.set('views', __dirname + '/templates');
 // routes ==================================================
 // require('./app/routes')(app); // configure our routes
 
